@@ -23,12 +23,16 @@ module.exports = {
                 console.log(err);
                 res.send('database error');
                 return
+            } else {
+              return console.log('connect database success')
             }
+
             var values = {};
             for (var i in result) {
                 var val = result[i];
                 values[val["_id"]] = val["value"]
             }
+
             res.render('index', {title: 'NodeJS MongoDB demo', values: values});
         });
     },
